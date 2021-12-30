@@ -1,0 +1,35 @@
+{
+  "users": [
+    {
+      "name": "Argha wad",
+      "username": "14805518016",
+      "email": "waddu@gmail.com",
+      "phone": "8937269810",
+      "website": "github.com/waddu",
+      "id": 7,
+      "placed": "Wipro",
+      "gen": "Male"
+    },
+    {
+      "name": "Prem",
+      "username": "14805518014",
+      "email": "paul@gmail.com",
+      "phone": "3289098743",
+      "website": "github.com/prem",
+      "id": 8,
+      "marks": "7"
+    },
+    {
+      "name": "Ghoshal",
+      "username": "14805518004",
+      "email": "waddu@g.com",
+      "phone": "23232",
+      "website": "github.com/baner",
+      "marks": "8.3",
+      "id": 9,
+      "coca": "Project exhibit, Drawing, Likhwavat, 2 webinars",
+      "books": "5 from book bank+1 Math",
+      "fees": "Paid(upto 8th)"
+    }
+  ]
+}
