@@ -62,7 +62,7 @@ const EditUser = () => {
   return (
     <div className="container">
       <div className="w-75 mx-auto shadow p-5">
-        <h2 className="text-center mb-4">Edit A User</h2>
+        <h2 className="text-center mb-4">Edit Student</h2>
         <form onSubmit={(e) => onSubmit(e)}>
           <div className="form-group">
             <input
@@ -71,6 +71,16 @@ const EditUser = () => {
               placeholder="Enter Your Name"
               name="name"
               value={name}
+              onChange={(e) => onInputChange(e)}
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="text"
+              className="form-control form-control-lg"
+              placeholder="Enter Your admission type"
+              name="gen"
+              value={gen}
               onChange={(e) => onInputChange(e)}
             />
           </div>
@@ -114,16 +124,7 @@ const EditUser = () => {
               onChange={(e) => onInputChange(e)}
             />
           </div>
-          <div className="form-group">
-            <input
-              type="text"
-              className="form-control form-control-lg"
-              placeholder="Enter Your gender"
-              name="gen"
-              value={gen}
-              onChange={(e) => onInputChange(e)}
-            />
-          </div>
+
           <div className="form-group">
             <input
               type="text"

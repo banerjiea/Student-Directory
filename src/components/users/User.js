@@ -34,7 +34,7 @@ const User = () => {
       <Link className="btn btn-primary" to="/">
         Back to Home
       </Link>
-      <h1 className="display-4">User Id: {id}</h1>
+      <h1 className="display-4">User Id: {user.username}</h1>
       <hr />
       <div className="container mb-3 mt-4">
         <table class="table table-striped table-bordered table-hover">
@@ -42,12 +42,12 @@ const User = () => {
             <tr>
               <th scope="col">#</th>
               <th scope="col">Personal info</th>
-              <th scope="col">Physical info</th>
               <th scope="col">Academics</th>
-              <th scope="col">Co-curricular activities</th>
-              <th scope="col">Library books status</th>
-              <th scope="col">Placement status</th>
-              <th scope="col">Sem fees status</th>
+              <th scope="col">Co-curricular</th>
+              <th scope="col">Admission type</th>
+              <th scope="col">Books + Notes</th>
+              <th scope="col">Placement</th>
+              <th scope="col">Tution fees</th>
             </tr>
           </thead>
           <tbody>
@@ -55,28 +55,34 @@ const User = () => {
               <th scope="row">1</th>
               <td>Full name: {user.name}</td>
 
-              <td>Gender:{user.gen}</td>
-
-              <td>Sem avg marks: {user.marks}</td>
+              <td>Semester: {user.marks}</td>
 
               <td>MAR: {user.coca}</td>
+              <td>{user.gen}</td>
 
-              <td>{user.books}</td>
+              <td>
+                {user.books}
 
-              <td>{user.placed}</td>
+                <u>Click to know more</u>
+              </td>
+
+              <td>
+                {user.placed}
+                <u>Click to know more</u>
+              </td>
 
               <td>{user.fees}</td>
             </tr>
             <tr>
               <th scope="row">2</th>
               <td>DOB: {user.dob}</td>
-              <td></td>
-              <td>CA avg marks:</td>
-              <td>MOOCS:</td>
+              <td>CA : 23</td>
+              <td>MOOCS: 15</td>
             </tr>
             <tr>
               <th scope="row">3</th>
               <td>Address: {user.address}</td>
+              <td>PCA : 35</td>
             </tr>
             <tr>
               <th scope="row">4</th>

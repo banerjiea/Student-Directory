@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   const [users, setUser] = useState([]);
-
+  const [value, setValue] = useState("");
   useEffect(() => {
     loadUsers();
   }, []);
@@ -19,9 +19,44 @@ const Home = () => {
     loadUsers();
   };
 
+  const handleReset = () => {
+    loadUsers();
+  };
+
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    return await axios
+      .get(`http://localhost:3003/users?q=${value}`)
+      .then((response) => {
+        setUser(response.data);
+        setValue("");
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div className="container">
       <div className="py-4">
+        <form class="d-flex input-group w-auto" onSubmit={handleSearch}>
+          <input
+            className="form-control me-2"
+            type="search"
+            placeholder="Search"
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            aria-label="Search"
+          />
+          <button className="btn btn-outline-info" type="submit">
+            Search
+          </button>
+          <button
+            className="btn btn-outline-info"
+            type="submit"
+            onClick={() => handleReset()}
+          >
+            Reset
+          </button>
+        </form>
         <h1>Details of all students</h1>
         <table class="table border shadow">
           <thead class="thead-light">

@@ -1,10 +1,11 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-info">
       <div className="container">
-        <Link className="navbar-brand" href="/">
+        <Link className="navbar-brand" exact to="/">
           Student-Directory
         </Link>
         <button
@@ -40,7 +41,7 @@ const Navbar = () => {
         </div>
 
         <Link className="btn btn-outline-light" to="/users/add">
-          Add User
+          Add Student
         </Link>
       </div>
     </nav>
