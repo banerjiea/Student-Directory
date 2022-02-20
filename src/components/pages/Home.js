@@ -10,12 +10,14 @@ const Home = () => {
   }, []);
 
   const loadUsers = async () => {
-    const result = await axios.get("http://localhost:3003/users");
+    const result = await axios.get(
+      "https://student-dir-api.herokuapp.com/users"
+    );
     setUser(result.data);
   };
 
   const deleteUser = async (id) => {
-    await axios.delete(`http://localhost:3003/users/${id}`);
+    await axios.delete(`https://student-dir-api.herokuapp.com/users/${id}`);
     loadUsers();
   };
 
@@ -26,7 +28,7 @@ const Home = () => {
   const handleSearch = async (e) => {
     e.preventDefault();
     return await axios
-      .get(`http://localhost:3003/users?q=${value}`)
+      .get(`https://student-dir-api.herokuapp.com/users?q=${value}`)
       .then((response) => {
         setUser(response.data);
         setValue("");
