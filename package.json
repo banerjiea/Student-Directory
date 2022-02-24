@@ -1,6 +1,6 @@
 {
   "homepage": "https://banerjiea.github.io/Student-Directory",
-  "name": "users",
+  "name": "student-directory",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -34,7 +34,7 @@
     "start": "react-scripts start",
     "json-server": "json-server --watch db.json --https://student-dir-api.herokuapp.com/users",
     "start:dev": "concurrently \"npm start\" \"npm run json-server\"",
-    "build": "react-scripts build",
+    "build": "npm run clear && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
