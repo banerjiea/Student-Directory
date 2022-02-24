@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9973f075c17bb111e724d5b2291dd9ee",
+    "revision": "355b5842b89c4f2ca165dc4de2b8444f",
     "url": "/Student-Directory/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Student-Directory/static/css/2.89f067aa.chunk.css"
   },
   {
-    "revision": "b006f450e52d04e55c18",
+    "revision": "410258d6da221861631e",
     "url": "/Student-Directory/static/css/main.686842f3.chunk.css"
   },
   {
@@ -20,15 +20,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Student-Directory/static/js/2.bad6331b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "55d726ec838de19b5cdb",
-    "url": "/Student-Directory/static/js/3.8b4c8e44.chunk.js"
+    "revision": "410258d6da221861631e",
+    "url": "/Student-Directory/static/js/main.23c52fff.chunk.js"
   },
   {
-    "revision": "b006f450e52d04e55c18",
-    "url": "/Student-Directory/static/js/main.6244cd8e.chunk.js"
-  },
-  {
-    "revision": "8bddb9703d3eb11c978c",
-    "url": "/Student-Directory/static/js/runtime-main.d860e8c8.js"
+    "revision": "2a9db2cd889967a6b670",
+    "url": "/Student-Directory/static/js/runtime-main.a28ea49f.js"
   }
 ]);
