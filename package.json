@@ -1,5 +1,4 @@
 {
-  "homepage": "https://banerjiea.github.io/Student-Directory",
   "name": "student-directory",
   "version": "0.1.0",
   "private": true,
@@ -34,12 +33,9 @@
     "start": "react-scripts start",
     "json-server": "json-server --watch db.json --https://student-dir-api.herokuapp.com/users",
     "start:dev": "concurrently \"npm start\" \"npm run json-server\"",
-    "build": "npm run clear && react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "clear": "rimraf build",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
