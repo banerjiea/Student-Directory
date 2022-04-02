@@ -1,6 +1,7 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useHistory } from "react-router-dom";
 import axios from "axios";
 
 const User = () => {
@@ -20,6 +21,9 @@ const User = () => {
     dept: "",
     placed: "",
     gen: "",
+    ca: "",
+    pca: "",
+    moocs: "",
   });
   const { id } = useParams();
   useEffect(() => {
@@ -31,6 +35,13 @@ const User = () => {
     );
     setUser(res.data);
   };
+
+  let history = useHistory();
+
+  const redirect = () => {
+    history.push("/sample");
+  };
+
   return (
     <div className="container py-4">
       <Link className="btn btn-primary" to="/">
@@ -42,14 +53,32 @@ const User = () => {
         <table class="table table-striped table-bordered table-hover">
           <thead>
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">Personal info</th>
-              <th scope="col">Academics</th>
-              <th scope="col">Co-curricular</th>
-              <th scope="col">Admission type</th>
-              <th scope="col">Books + Notes</th>
-              <th scope="col">Placement</th>
-              <th scope="col">Tution fees</th>
+              <th className="table-primary" scope="col">
+                #
+              </th>
+
+              <th className="table-primary" onClick={redirect} scope="col">
+                Personal info
+              </th>
+
+              <th className="table-primary" scope="col">
+                Academics
+              </th>
+              <th className="table-primary" scope="col">
+                Co-curricular
+              </th>
+              <th className="table-primary" scope="col">
+                Admission type
+              </th>
+              <th className="table-primary" scope="col">
+                Books + Notes
+              </th>
+              <th className="table-primary" scope="col">
+                Placement
+              </th>
+              <th className="table-primary" scope="col">
+                Tution fees
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -78,13 +107,13 @@ const User = () => {
             <tr>
               <th scope="row">2</th>
               <td>DOB: {user.dob}</td>
-              <td>CA : 23</td>
-              <td>MOOCS: 15</td>
+              <td>CA : {user.ca}</td>
+              <td>MOOCS: {user.moocs}</td>
             </tr>
             <tr>
               <th scope="row">3</th>
               <td>Address: {user.address}</td>
-              <td>PCA : 35</td>
+              <td>PCA : {user.pca}</td>
             </tr>
             <tr>
               <th scope="row">4</th>

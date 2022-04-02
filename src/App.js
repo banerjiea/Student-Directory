@@ -10,6 +10,8 @@ import NotFound from "./components/pages/NotFound";
 import AddUser from "./components/users/AddUser";
 import EditUser from "./components/users/EditUser";
 import User from "./components/users/User";
+import Denied from "./components/pages/Denied";
+import sample from "./components/pages/sample";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
           <Route exact path="/users/add" component={AddUser} />
           <Route exact path="/users/edit/:id" component={EditUser} />
           <Route exact path="/users/:id" component={User} />
+          <Route exact path="/denied" component={Denied} />
+          <Route exact path="/sample" component={sample} />
           <Route component={NotFound} />
         </Switch>
       </div>

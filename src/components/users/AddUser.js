@@ -20,6 +20,9 @@ const AddUser = () => {
     dept: "",
     placed: "",
     gen: "",
+    ca: "",
+    pca: "",
+    moocs: "",
   });
 
   const {
@@ -38,6 +41,9 @@ const AddUser = () => {
     dept,
     placed,
     gen,
+    ca,
+    pca,
+    moocs,
   } = user;
   const onInputChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -136,11 +142,41 @@ const AddUser = () => {
           </div>
           <div className="form-group">
             <input
+              type="number"
+              className="form-control form-control-lg"
+              placeholder="Enter CA marks"
+              name="ca"
+              value={ca}
+              onChange={(e) => onInputChange(e)}
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="number"
+              className="form-control form-control-lg"
+              placeholder="Enter PCA marks"
+              name="pca"
+              value={pca}
+              onChange={(e) => onInputChange(e)}
+            />
+          </div>
+          <div className="form-group">
+            <input
               type="text"
               className="form-control form-control-lg"
-              placeholder="Enter co-curricular activities"
+              placeholder="Enter MAR points"
               name="coca"
               value={coca}
+              onChange={(e) => onInputChange(e)}
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="text"
+              className="form-control form-control-lg"
+              placeholder="Enter MOOCS points"
+              name="moocs"
+              value={moocs}
               onChange={(e) => onInputChange(e)}
             />
           </div>

@@ -22,6 +22,9 @@ const EditUser = () => {
     dept: "",
     placed: "",
     gen: "",
+    ca: "",
+    pca: "",
+    moocs: "",
   });
 
   const {
@@ -40,6 +43,9 @@ const EditUser = () => {
     dept,
     placed,
     gen,
+    ca,
+    pca,
+    moocs,
   } = user;
   const onInputChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -70,7 +76,7 @@ const EditUser = () => {
             <input
               type="text"
               className="form-control form-control-lg"
-              placeholder="Enter Your Name"
+              placeholder="Enter Name"
               name="name"
               value={name}
               onChange={(e) => onInputChange(e)}
@@ -80,7 +86,7 @@ const EditUser = () => {
             <input
               type="text"
               className="form-control form-control-lg"
-              placeholder="Enter Your admission type"
+              placeholder="Enter admission type"
               name="gen"
               value={gen}
               onChange={(e) => onInputChange(e)}
@@ -90,7 +96,7 @@ const EditUser = () => {
             <input
               type="number"
               className="form-control form-control-lg"
-              placeholder="Enter Your University Roll"
+              placeholder="Enter University Roll"
               name="username"
               value={username}
               onChange={(e) => onInputChange(e)}
@@ -100,7 +106,7 @@ const EditUser = () => {
             <input
               type="text"
               className="form-control form-control-lg"
-              placeholder="Enter Your College Roll"
+              placeholder="Enter College Roll"
               name="roll"
               value={roll}
               onChange={(e) => onInputChange(e)}
@@ -110,7 +116,7 @@ const EditUser = () => {
             <input
               type="email"
               className="form-control form-control-lg"
-              placeholder="Enter Your E-mail Address"
+              placeholder="Enter E-mail Address"
               name="email"
               value={email}
               onChange={(e) => onInputChange(e)}
@@ -120,7 +126,7 @@ const EditUser = () => {
             <input
               type="text"
               className="form-control form-control-lg"
-              placeholder="Enter Your Phone Number"
+              placeholder="Enter Phone Number"
               name="phone"
               value={phone}
               onChange={(e) => onInputChange(e)}
@@ -131,7 +137,7 @@ const EditUser = () => {
             <input
               type="text"
               className="form-control form-control-lg"
-              placeholder="Enter Your Website Name"
+              placeholder="Enter github link"
               name="website"
               value={website}
               onChange={(e) => onInputChange(e)}
@@ -141,7 +147,7 @@ const EditUser = () => {
             <input
               type="number"
               className="form-control form-control-lg"
-              placeholder="Enter Your Sem Marks"
+              placeholder="Enter Sem Marks"
               name="marks"
               value={marks}
               onChange={(e) => onInputChange(e)}
@@ -149,9 +155,29 @@ const EditUser = () => {
           </div>
           <div className="form-group">
             <input
+              type="number"
+              className="form-control form-control-lg"
+              placeholder="Enter CA marks"
+              name="ca"
+              value={ca}
+              onChange={(e) => onInputChange(e)}
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="number"
+              className="form-control form-control-lg"
+              placeholder="Enter PCA marks"
+              name="pca"
+              value={pca}
+              onChange={(e) => onInputChange(e)}
+            />
+          </div>
+          <div className="form-group">
+            <input
               type="text"
               className="form-control form-control-lg"
-              placeholder="Enter Your co-curricular activities"
+              placeholder="Enter MAR points"
               name="coca"
               value={coca}
               onChange={(e) => onInputChange(e)}
@@ -161,7 +187,17 @@ const EditUser = () => {
             <input
               type="text"
               className="form-control form-control-lg"
-              placeholder="Enter which books you have"
+              placeholder="Enter MOOCS points"
+              name="moocs"
+              value={moocs}
+              onChange={(e) => onInputChange(e)}
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="text"
+              className="form-control form-control-lg"
+              placeholder="Enter which books student have"
               name="books"
               value={books}
               onChange={(e) => onInputChange(e)}
@@ -171,7 +207,7 @@ const EditUser = () => {
             <input
               type="text"
               className="form-control form-control-lg"
-              placeholder="Enter your sem fees status"
+              placeholder="Enter sem fees status"
               name="fees"
               value={fees}
               onChange={(e) => onInputChange(e)}
@@ -181,7 +217,7 @@ const EditUser = () => {
             <input
               type="date"
               className="form-control form-control-lg"
-              placeholder="Enter your birth date"
+              placeholder="Enter birth date"
               name="dob"
               value={dob}
               onChange={(e) => onInputChange(e)}
@@ -191,7 +227,7 @@ const EditUser = () => {
             <input
               type="text"
               className="form-control form-control-lg"
-              placeholder="Enter your current home address"
+              placeholder="Enter current home address"
               name="address"
               value={address}
               onChange={(e) => onInputChange(e)}
@@ -201,7 +237,7 @@ const EditUser = () => {
             <input
               type="text"
               className="form-control form-control-lg"
-              placeholder="Enter your department and year"
+              placeholder="Enter department and year"
               name="dept"
               value={dept}
               onChange={(e) => onInputChange(e)}
@@ -211,7 +247,7 @@ const EditUser = () => {
             <input
               type="text"
               className="form-control form-control-lg"
-              placeholder="Enter your placement status"
+              placeholder="Enter placement status"
               name="placed"
               value={placed}
               onChange={(e) => onInputChange(e)}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import img from "./images/FutureLogo.png";
 
 const Home = () => {
   const [users, setUser] = useState([]);
@@ -38,6 +39,33 @@ const Home = () => {
 
   return (
     <div className="container">
+      <div className="text-center">
+        <img src={img} className="rounded" alt="FutureLogo" />
+        <br />
+        <h1 className="py-8">Student Directory</h1>
+        <h2 className="py-4">Get | Add | Edit | Delete any details here!</h2>
+        <Link className="btn btn-primary mr-2" to="/">
+          AEIE
+        </Link>
+        <Link className="btn btn-outline-primary mr-2" to="/denied">
+          ECE
+        </Link>
+        <Link className="btn btn-outline-primary mr-2" to="/denied">
+          CSE
+        </Link>
+        <Link className="btn btn-outline-primary mr-2" to="/denied">
+          IT
+        </Link>
+        <Link className="btn btn-outline-primary mr-2" to="/denied">
+          EE
+        </Link>
+        <Link className="btn btn-outline-primary mr-2" to="/denied">
+          ME
+        </Link>
+        <Link className="btn btn-outline-primary mr-2" to="/denied">
+          CIVIL
+        </Link>
+      </div>
       <div className="py-4">
         <form class="d-flex input-group w-auto" onSubmit={handleSearch}>
           <input
@@ -48,7 +76,7 @@ const Home = () => {
             onChange={(e) => setValue(e.target.value)}
             aria-label="Search"
           />
-          <button className="btn btn-outline-info" type="submit">
+          <button className="btn btn-outline-info mr-2 " type="submit">
             Search
           </button>
           <button
@@ -101,6 +129,10 @@ const Home = () => {
             ))}
           </tbody>
         </table>
+        <footer className="text-center text-lg-start bg-light text-muted">
+          For the best view use Mozila Firefox, Google Chrome Browser |
+          Copyright © 2022,Student Directory. All right reserved.
+        </footer>
       </div>
     </div>
   );
