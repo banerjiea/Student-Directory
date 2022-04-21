@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import img from "./images/FutureLogo.png";
 
 const Home = () => {
   const [users, setUser] = useState([]);
-  const [value, setValue] = useState("");
+  const [searchText, setSearchText] = useState("");
   useEffect(() => {
     loadUsers();
   }, []);
@@ -22,20 +22,18 @@ const Home = () => {
     loadUsers();
   };
 
-  const handleReset = () => {
-    loadUsers();
-  };
+  const filteredUsers = useMemo(() => {
+    if (!searchText) return users;
+    let updatedUsers = users.filter(
+      (user) =>
+        user.name.toLowerCase().includes(searchText.toLowerCase()) ||
+        user.username.toLowerCase().includes(searchText.toLowerCase()) ||
+        user.email.toLowerCase().includes(searchText.toLowerCase()) ||
+        user.dept.toLowerCase().includes(searchText.toLowerCase())
+    );
 
-  const handleSearch = async (e) => {
-    e.preventDefault();
-    return await axios
-      .get(`https://student-dir-api.herokuapp.com/users?q=${value}`)
-      .then((response) => {
-        setUser(response.data);
-        setValue("");
-      })
-      .catch((err) => console.log(err));
-  };
+    return updatedUsers;
+  }, [users, searchText]);
 
   return (
     <div className="container">
@@ -67,26 +65,14 @@ const Home = () => {
         </Link>
       </div>
       <div className="py-4">
-        <form class="d-flex input-group w-auto" onSubmit={handleSearch}>
-          <input
-            className="form-control me-2"
-            type="search"
-            placeholder="Search"
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
-            aria-label="Search"
-          />
-          <button className="btn btn-outline-info mr-2 " type="submit">
-            Search
-          </button>
-          <button
-            className="btn btn-outline-info"
-            type="submit"
-            onClick={() => handleReset()}
-          >
-            Reset
-          </button>
-        </form>
+        <input
+          className="form-control me-2"
+          type="search"
+          placeholder="Search and filter on basis of Name,Univ. roll no. and year(eg:1st/2nd/3rd/4th)"
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+          aria-label="Search"
+        />
         <h1>Details of all students</h1>
         <table class="table border shadow">
           <thead class="thead-light">
@@ -99,7 +85,7 @@ const Home = () => {
             </tr>
           </thead>
           <tbody>
-            {users.map((user, index) => (
+            {filteredUsers.map((user, index) => (
               <tr>
                 <th scope="row">{index + 1}</th>
                 <td>{user.name}</td>

@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 
-const sample = () => {
+const Placement = () => {
   const [user, setUser] = useState({
     name: "",
     username: "",
@@ -14,7 +14,7 @@ const sample = () => {
     website: "",
     marks: "",
     coca: "",
-    books: "",
+    update: "",
     fees: "",
     dob: "",
     address: "",
@@ -24,6 +24,8 @@ const sample = () => {
     ca: "",
     pca: "",
     moocs: "",
+    placedcomp: "",
+    placedjoin: "",
   });
   const { id } = useParams();
   useEffect(() => {
@@ -38,24 +40,46 @@ const sample = () => {
 
   return (
     <div className="container py-4">
-      <Link className="btn btn-primary" to="/">
+      <Link className="btn btn-primary mr-2" to="/">
         Back to Home
       </Link>
+      <Link to={`/users/${id}`} className="btn btn-primary mr-2">
+        Back to previous page
+      </Link>
       <h1 className="display-4">User Id:{user.username}</h1>
+      <h2>
+        Placement information{" "}
+        <Link
+          class="btn btn-outline-primary mr-2"
+          to={`/users/edit/${user.id}`}
+        >
+          Edit
+        </Link>
+      </h2>
       <hr />
       <div className="container mb-3 mt-4">
         <table class="table table-striped table-bordered table-hover">
-          <thead>
+          <tbody>
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">Personal info</th>
-              {user.address}
+              <th scope="row">1</th>
+              <td>Placement status</td>
+              <td>{user.placed}</td>
             </tr>
-          </thead>
+            <tr>
+              <th scope="row">2</th>
+              <td>Placed in company/companies</td>
+              <td>{user.placedcomp}</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Joined in company</td>
+              <td>{user.placedjoin}</td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>
   );
 };
 
-export default sample;
+export default Placement;

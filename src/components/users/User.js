@@ -14,7 +14,7 @@ const User = () => {
     website: "",
     marks: "",
     coca: "",
-    books: "",
+    update: "",
     fees: "",
     dob: "",
     address: "",
@@ -24,6 +24,8 @@ const User = () => {
     ca: "",
     pca: "",
     moocs: "",
+    semfees: "",
+    proname: "",
   });
   const { id } = useParams();
   useEffect(() => {
@@ -39,7 +41,34 @@ const User = () => {
   let history = useHistory();
 
   const redirect = () => {
-    history.push("/sample");
+    history.push(`/personal/${id}`);
+  };
+
+  const redirectOne = () => {
+    history.push(`/academics/${id}`);
+  };
+
+  const redirectTwo = () => {
+    history.push(`/cocurricular/${id}`);
+  };
+
+  const redirectThree = () => {
+    history.push(`/Update/${id}`);
+  };
+
+  const redirectFour = () => {
+    history.push(`/Placement/${id}`);
+  };
+
+  const redirectFive = () => {
+    history.push(`/Admission/${id}`);
+  };
+  const redirectSix = () => {
+    history.push(`/Fees/${id}`);
+  };
+
+  const redirectSeven = () => {
+    history.push(`/Project/${id}`);
   };
 
   return (
@@ -49,98 +78,136 @@ const User = () => {
       </Link>
       <h1 className="display-4">User Id: {user.username}</h1>
       <hr />
-      <div className="container mb-3 mt-4">
-        <table class="table table-striped table-bordered table-hover">
-          <thead>
-            <tr>
-              <th className="table-primary" scope="col">
-                #
-              </th>
 
-              <th className="table-primary" onClick={redirect} scope="col">
-                Personal info
-              </th>
+      <div className="container">
+        <div className="row">
+          <div className="col">
+            <div className="card text-white bg-primary mb-3">
+              <div className="card-header">Personal Information</div>
+              <div className="card-body">
+                <h5 className="card-title">{user.name}</h5>
+                <p className="card-text">
+                  Personal information of student available here
+                </p>
+                <button className="btn btn-light" onClick={redirect}>
+                  Click to know more
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="col">
+            <div className="card text-white bg-secondary mb-3">
+              <div className="card-header">Academics</div>
 
-              <th className="table-primary" scope="col">
-                Academics
-              </th>
-              <th className="table-primary" scope="col">
-                Co-curricular
-              </th>
-              <th className="table-primary" scope="col">
-                Admission type
-              </th>
-              <th className="table-primary" scope="col">
-                Books + Notes
-              </th>
-              <th className="table-primary" scope="col">
-                Placement
-              </th>
-              <th className="table-primary" scope="col">
-                Tution fees
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Full name: {user.name}</td>
+              <div className="card-body">
+                <h5 className="card-title">Sem avg: {user.marks}</h5>
+                <p className="card-text">
+                  All semester marks and college internal marks displayed here
+                </p>
+                <button onClick={redirectOne} className="btn btn-light">
+                  Click to know more
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-              <td>Semester: {user.marks}</td>
+      <div className="container">
+        <div className="row">
+          <div className="col">
+            <div className="card text-white bg-success mb-3">
+              <div className="card-header">Co-curricular activities</div>
+              <div className="card-body">
+                <h5 className="card-title">{user.coca}</h5>
+                <p className="card-text">
+                  MAR and MOOCS marks are displayed here
+                </p>
+                <button onClick={redirectTwo} className="btn btn-light">
+                  Click to know more
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="col">
+            <div className="card text-white bg-danger mb-3">
+              <div className="card-header">Fees Record</div>
+              <div className="card-body">
+                <h5 className="card-title">Paid up to : {user.semfees}</h5>
+                <p className="card-text">
+                  Fees record of student available here
+                </p>
+                <button onClick={redirectSix} className="btn btn-light">
+                  Click to know more
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-              <td>MAR: {user.coca}</td>
-              <td>{user.gen}</td>
+      <div className="container">
+        <div className="row">
+          <div className="col">
+            <div className="card text-white bg-warning mb-3">
+              <div className="card-header">Placement Status</div>
+              <div className="card-body">
+                <h5 className="card-title">{user.placed}</h5>
+                <p className="card-text">
+                  Placement record of student available here
+                </p>
+                <button onClick={redirectFour} className="btn btn-light">
+                  Click to know more
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="col">
+            <div className="card text-white bg-info mb-3">
+              <div className="card-header">Admission Details</div>
+              <div className="card-body">
+                <h5 className="card-title">{user.gen}</h5>
+                <p className="card-text">
+                  Admission record of student available here
+                </p>
+                <button onClick={redirectFive} className="btn btn-light">
+                  Click to know more
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-              <td>
-                {user.books}
-
-                <u>Click to know more</u>
-              </td>
-
-              <td>
-                {user.placed}
-                <u>Click to know more</u>
-              </td>
-
-              <td>{user.fees}</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>DOB: {user.dob}</td>
-              <td>CA : {user.ca}</td>
-              <td>MOOCS: {user.moocs}</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Address: {user.address}</td>
-              <td>PCA : {user.pca}</td>
-            </tr>
-            <tr>
-              <th scope="row">4</th>
-              <td>Department and year: {user.dept}</td>
-            </tr>
-            <tr>
-              <th scope="row">5</th>
-              <td>University roll: {user.username}</td>
-            </tr>
-            <tr>
-              <th scope="row">6</th>
-              <td>College roll/ID:{user.roll}</td>
-            </tr>
-            <tr>
-              <th scope="row">7</th>
-              <td>Email: {user.email}</td>
-            </tr>
-            <tr>
-              <th scope="row">8</th>
-              <td>Phone: {user.phone}</td>
-            </tr>
-            <tr>
-              <th scope="row">9</th>
-              <td>Site link: {user.website}</td>
-            </tr>
-          </tbody>
-        </table>
+      <div className="container">
+        <div className="row">
+          <div className="col">
+            <div className="card text-white bg-dark mb-3">
+              <div className="card-header">Final Year Project</div>
+              <div className="card-body">
+                <h5 className="card-title">{user.proname}</h5>
+                <p className="card-text">Status of final year project</p>
+                <button onClick={redirectSeven} className="btn btn-light">
+                  Click to know more
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="col">
+            <div className="card bg-light mb-3">
+              <div className="card-header">Last updated</div>
+              <div className="card-body">
+                <h5 className="card-title">{user.update}</h5>
+                <p className="card-text">
+                  Last updated date and time available here
+                </p>
+                <button onClick={redirectThree} className="btn btn-light">
+                  Click to know more
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

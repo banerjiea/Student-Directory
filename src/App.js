@@ -11,7 +11,14 @@ import AddUser from "./components/users/AddUser";
 import EditUser from "./components/users/EditUser";
 import User from "./components/users/User";
 import Denied from "./components/pages/Denied";
-import sample from "./components/pages/sample";
+import personal from "./components/pages/personal";
+import academics from "./components/pages/academics";
+import CoCurr from "./components/pages/CoCurr";
+import Update from "./components/pages/Update";
+import Placement from "./components/pages/Placement";
+import Admission from "./components/pages/Admission";
+import Fees from "./components/pages/Fees";
+import Project from "./components/pages/Project";
 
 function App() {
   return (
@@ -27,7 +34,14 @@ function App() {
           <Route exact path="/users/edit/:id" component={EditUser} />
           <Route exact path="/users/:id" component={User} />
           <Route exact path="/denied" component={Denied} />
-          <Route exact path="/sample" component={sample} />
+          <Route exact path="/personal/:id" component={personal} />
+          <Route exact path="/academics/:id" component={academics} />
+          <Route exact path="/cocurricular/:id" component={CoCurr} />
+          <Route exact path="/Update/:id" component={Update} />
+          <Route exact path="/Placement/:id" component={Placement} />
+          <Route exact path="/Admission/:id" component={Admission} />
+          <Route exact path="/Fees/:id" component={Fees} />
+          <Route exact path="/Project/:id" component={Project} />
           <Route component={NotFound} />
         </Switch>
       </div>
