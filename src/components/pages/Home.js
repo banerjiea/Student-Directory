@@ -73,48 +73,52 @@ const Home = () => {
           onChange={(e) => setSearchText(e.target.value)}
           aria-label="Search"
         />
-        <h1>Details of all students</h1>
-        <table class="table border shadow">
-          <thead class="thead-light">
-            <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Name</th>
-              <th scope="col">University Roll Number</th>
-              <th scope="col">Email</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredUsers.map((user, index) => (
+        <h1 style={{ "margin-top": "0.5rem" }}>Details of all students</h1>
+        {filteredUsers.length === 0 ? (
+          <div style={{ margin: "0.5rem" }}>No Results found ...</div>
+        ) : (
+          <table class="table border shadow">
+            <thead class="thead-light">
               <tr>
-                <th scope="row">{index + 1}</th>
-                <td>{user.name}</td>
-                <td>{user.username}</td>
-                <td>{user.email}</td>
-                <td>
-                  <Link
-                    class="btn btn-outline-primary mr-2"
-                    to={`/users/${user.id}`}
-                  >
-                    View
-                  </Link>
-                  <Link
-                    class="btn btn-outline-success mr-2"
-                    to={`/users/edit/${user.id}`}
-                  >
-                    Edit
-                  </Link>
-                  <Link
-                    class="btn btn-outline-danger mr-2"
-                    onClick={() => deleteUser(user.id)}
-                  >
-                    Delete
-                  </Link>
-                </td>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">University Roll Number</th>
+                <th scope="col">Email</th>
+                <th>Action</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {filteredUsers.map((user, index) => (
+                <tr>
+                  <th scope="row">{index + 1}</th>
+                  <td>{user.name}</td>
+                  <td>{user.username}</td>
+                  <td>{user.email}</td>
+                  <td>
+                    <Link
+                      class="btn btn-outline-primary mr-2"
+                      to={`/users/${user.id}`}
+                    >
+                      View
+                    </Link>
+                    <Link
+                      class="btn btn-outline-success mr-2"
+                      to={`/users/edit/${user.id}`}
+                    >
+                      Edit
+                    </Link>
+                    <Link
+                      class="btn btn-outline-danger mr-2"
+                      onClick={() => deleteUser(user.id)}
+                    >
+                      Delete
+                    </Link>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
         <footer className="text-center text-lg-start bg-light text-muted">
           For the best view use Mozila Firefox, Google Chrome Browser |
           Copyright © 2022,Student Directory. All right reserved.
