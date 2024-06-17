@@ -12,13 +12,13 @@ const Home = () => {
 
   const loadUsers = async () => {
     const result = await axios.get(
-      "https://student-dir-api.herokuapp.com/users"
+      "https://users-lptv.onrender.com/users"
     );
     setUser(result.data);
   };
 
   const deleteUser = async (id) => {
-    await axios.delete(`https://student-dir-api.herokuapp.com/users/${id}`);
+    await axios.delete(`https://users-lptv.onrender.com/users/${id}`);
     loadUsers();
   };
 
