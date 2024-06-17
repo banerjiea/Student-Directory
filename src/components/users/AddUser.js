@@ -102,7 +102,7 @@ const AddUser = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("https://student-dir-api.herokuapp.com/users", user);
+    await axios.post("https://users-lptv.onrender.com/users", user);
     history.push("/");
   };
   return (
